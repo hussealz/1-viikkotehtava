@@ -1,0 +1,145 @@
+/* ===== RESET ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
+  color: #1a1a1a;              /* tumma teksti sisältöön */
+  background: #ffffff;         /* valkoinen tausta */
+}
+
+/* Sivun keskitys */
+.container {
+  width: 1100px;               /* perusleveys 1. viikolle */
+  margin: 0 auto;              /* keskitys */
+  padding: 0 16px;
+}
+
+/* ===== HEADER (vain navigaatio) ===== */
+.topbar {
+  background: #111111;         /* musta header */
+  padding: 18px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+}
+
+/* Keskitetään nav ilman flexiä/gridiä */
+.topbar .container { text-align: center; }
+.mainnav { display: inline-block; float: none; }
+
+.mainnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.mainnav li { display: inline-block; margin: 0 6px; }
+.mainnav a {
+  display: inline-block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #f5f5f5;
+  border-bottom: 2px solid transparent;
+  border-radius: 6px;
+}
+.mainnav a:hover {
+  color: #ffffff;
+  border-bottom-color: #e63946;       /* punainen hover */
+}
+.mainnav a:active { position: relative; top: 1px; }
+.mainnav a:focus { outline: 3px solid #e63946; }
+.mainnav a.active {
+  color: #e63946;                     /* aktiivinen punainen */
+  border-bottom-color: #e63946;
+}
+
+/* ===== YLEISTEKSTI ===== */
+.note { color: #111111; margin: 28px 0 60px; }
+
+/* ===== ABOUT ===== */
+.about-wrap { background: #fafafa; padding: 40px 0; }
+.pattern { background: #fafafa; border-radius: 14px 14px 0 0; }
+
+.about {
+  position: relative;          /* mahdollistaa about-logon absoluuttisen sijoittelun */
+  padding: 32px;
+  min-height: 340px;
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+/* Kuva vasemmalle (ei flex/grid) */
+.about-image {
+  float: left;
+  width: 38%;
+  margin: 0 24px 16px 0;
+}
+.about-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 400px;            /* rajoittaa maksimikokoa */
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+}
+
+/* Tekstit oikealle */
+.about-text {
+  float: left;
+  width: 56%;
+}
+
+.overline {
+  margin: 0 0 6px;
+  font-size: .9rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #e63946;               /* punainen korostus */
+}
+
+.about h1 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+  color: #111111;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  background: #e63946;          /* punainen nappi */
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
+.btn:hover { filter: brightness(1.1); }
+.btn:active { position: relative; top: 1px; }
+
+/* Koriste-logo about-laatikossa (Sushilogo.png) oikeaan yläkulmaan */
+.about-logo {
+  position: absolute;
+  right: -40px;                 /* ulottuu hiukan laatikon ulkopuolelle */
+  top: -40px;
+  width: 120px;
+  height: auto;
+  pointer-events: none;         /* ei vaikuta klikkauksiin */
+}
+
+/* Kellutusten purku */
+.clearfix { clear: both; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #111111;          /* musta footer */
+  color: #f5f5f5;
+  padding: 24px 0;
+  text-align: center;
+  margin-top: 40px;
+}

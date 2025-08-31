@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sushinuni — About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Yläpalkki -->
+  <header class="topbar">
+    <div class="container">
+      <!-- Logo poistettu -->
+      <nav aria-label="Päävalikko" class="mainnav">
+        <ul>
+          <li><a class="active" href="#">Etusivu</a></li>
+          <li><a href="#">Ruokalista</a></li>
+          <li><a href="#">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sisältö -->
+  <main>
+    <div class="container">
+      <p class="note">Tänne tulee lisää sisältöä myöhemmissä tehtävissä</p>
+    </div>
+
+    <!-- About-osio -->
+    <section class="about-wrap">
+      <div class="container about pattern">
+
+        <!-- KUVA vasemmalle -->
+        <figure class="about-image">
+          <img src="about.jpg" alt="Sushinuni ravintolan sisätila">
+        </figure>
+
+        <!-- TEKSTIT oikealle -->
+        <div class="about-text">
+          <p class="overline">Lisää meistä</p>
+          <h1>Tämä on meidän tarinamme</h1>
+          <p>
+            Sushinuni on korttelin pieni sushibaari. Valmistamme riisin talon
+            etikalla ja fileoimme kalan paikan päällä. Sesongit ohjaavat menuamme,
+            myös kasvisvaihtoehdot löytyvät aina.
+          </p>
+          <p>
+            Tavoitteemme on tarjota tuoretta, käsin tehtyä sushia nopeasti ja
+            ystävällisesti — arkisin 11–20 ja lauantaisin 12–21.
+          </p>
+          <a class="btn" href="#">Katso menu</a>
+        </div>
+
+        <!-- LOGO koristeena oikeassa yläkulmassa -->
+        <img class="about-logo" src="sushilogo.png" alt="Sushinuni logo">
+
+        <div class="clearfix"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <small>© <span id="year">2025</span> Sushinuni, Helsinki</small>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var y = document.getElementById('year');
+      if(y){ y.textContent = new Date().getFullYear(); }
+    })();
+  </script>
+</body>
+</html>
