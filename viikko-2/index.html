@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sushinuni — About & Varaus</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container">
+      <nav class="mainnav" aria-label="Päävalikko">
+        <ul>
+          <li><a class="active" href="#hero">Etusivu</a></li>
+          <li><a href="#varaus">Ruokalista</a></li>
+          <li><a href="#yhteys">Yhteystiedot</a></li>
+          <li class="sr-only"><a href="menu.pdf">Tulostettava menu (PDF)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero" role="img" aria-label="Sushinuni hero">
+    <div class="container">
+      <h1>Tervetuloa Sushinuniin</h1>
+      <p>Tuoretta sushia ja sesongin makuja. Tee pöytävaraus alta.</p>
+      <a class="btn btn-ghost" href="#varaus">Avaa varauslomake</a>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <p class="note">Tänne tulee lisää sisältöä myöhemmissä tehtävissä</p>
+    </div>
+
+    <section class="about-wrap">
+      <div class="container about pattern">
+        <figure class="about-image">
+          <img src="about.jpg" alt="Sushinuni ravintolan sisätila" />
+        </figure>
+
+        <div class="about-text">
+          <p class="overline">Lisää meistä</p>
+          <h1>Tämä on meidän tarinamme</h1>
+          <p>
+            Sushinuni on korttelin pieni sushibaari. Valmistamme riisin talon
+            etikalla ja fileoimme kalan paikan päällä. Sesongit ohjaavat menuamme,
+            myös kasvisvaihtoehdot löytyvät aina.
+          </p>
+          <p>
+            Tavoitteemme on tarjota tuoretta, käsin tehtyä sushia nopeasti ja
+            ystävällisesti — arkisin 11–20 ja lauantaisin 12–21.
+          </p>
+          <a class="btn" href="#varaus">Katso menu</a>
+        </div>
+
+        <img class="about-logo" src="sushilogo.png" alt="Sushinuni logo" />
+        <div class="clearfix"></div>
+      </div>
+    </section>
+
+    <section id="varaus" class="form-section">
+      <div class="container">
+        <h2>Pöytävaraus</h2>
+
+        <form id="bookingForm" class="form-card" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name">Nimi <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" required minlength="2" maxlength="60" placeholder="Etunimi Sukunimi" />
+            <p class="error-msg">Anna nimesi (vähintään 2 merkkiä).</p>
+          </div>
+
+          <div class="field">
+            <label for="email">Sähköposti <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" required placeholder="nimi@example.com" autocomplete="email" />
+            <p class="error-msg">Syötä toimiva sähköpostiosoite.</p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Puhelin <span aria-hidden="true">*</span></label>
+            <input id="phone" name="phone" type="tel" required inputmode="tel"
+                   pattern="^\\+?\\d[\\d\\s-]{6,}$" placeholder="+358 40 123 4567" />
+            <p class="error-msg">Syötä puhelinnumero (numerot, välilyönnit ja viivat sallittu).</p>
+          </div>
+
+          <div class="two-inline">
+            <div class="field subfield">
+              <label for="date">Päivämäärä <span aria-hidden="true">*</span></label>
+              <input id="date" name="date" type="date" required />
+              <p class="error-msg">Valitse päivämäärä.</p>
+            </div>
+
+            <div class="field subfield">
+              <label for="timeHour">Kellonaika <span aria-hidden="true">*</span></label>
+
+              <div class="mini-inline">
+                <div class="mini">
+                  <select id="timeHour" aria-label="Tunti" required>
+                    <option value="" selected disabled>Tunti…</option>
+                    <option>11</option><option>12</option><option>13</option><option>14</option>
+                    <option>15</option><option>16</option><option>17</option><option>18</option>
+                    <option>19</option><option>20</option>
+                  </select>
+                </div>
+                <div class="mini">
+                  <select id="timeMinute" aria-label="Minuutti" required>
+                    <option value="" selected disabled>Min…</option>
+                    <option>15</option><option>30</option><option>45</option>
+                  </select>
+                </div>
+              </div>
+
+              <input id="time" name="time" type="time" required hidden />
+              <p class="error-msg">
+                Aukiolo: 11:15–20:00. Tunnit 11–19: minuutit 15/30/45. Tunti 20: vain 20:00.
+              </p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="people">Henkilömäärä <span aria-hidden="true">*</span></label>
+            <select id="people" name="people" required>
+              <option value="" selected disabled>Valitse…</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option>
+            </select>
+            <p class="error-msg">Valitse henkilömäärä.</p>
+          </div>
+
+          <div class="field">
+            <label for="message">Lisätiedot (valinnainen)</label>
+            <textarea id="message" name="message" rows="4" maxlength="300" placeholder="Allergiat, toiveet…"></textarea>
+            <p class="hint">Max 300 merkkiä.</p>
+          </div>
+
+          <div class="field checkbox">
+            <input id="terms" name="terms" type="checkbox" required />
+            <label for="terms">Hyväksyn varausehdot</label>
+            <p class="error-msg">Hyväksy varausehdot ennen lähettämistä.</p>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn">Lähetä varaus</button>
+            <a class="btn-link" href="#hero">Takaisin ylös</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="yhteys">
+    <div class="container">
+      <small>© <span id="year">2025</span> Sushinuni, Helsinki</small>
+    </div>
+  </footer>
+
+  <dialog id="thankyou">
+    <div class="dialog-card">
+      <img src="sushilogo.png" alt="" class="dialog-logo" aria-hidden="true" />
+      <h3>Kiitos varauksesta!</h3>
+      <p>Olemme lähettäneet vahvistuksen sähköpostiisi.</p>
+      <button id="dialogClose" class="btn">Sulje</button>
+    </div>
+  </dialog>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form  = document.getElementById('bookingForm');
+      var dlg   = document.getElementById('thankyou');
+      var btn   = document.getElementById('dialogClose');
+      var year  = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+
+      var hourSel = document.getElementById('timeHour');
+      var minSel  = document.getElementById('timeMinute');
+      var timeInp = document.getElementById('time');
+
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function setFieldState(el, ok, msg){
+        var field = el.closest('.field');
+        el.setCustomValidity(ok ? '' : (msg || 'Virheellinen arvo'));
+        if (!field) return;
+        field.classList.toggle('valid', ok);
+        field.classList.toggle('invalid', !ok);
+      }
+
+      function onHourChange(){
+        if (!hourSel) return;
+        if (minSel){
+          Array.from(minSel.options).forEach(function(opt){
+            if (opt.value === '') return;
+            opt.disabled = (hourSel.value === '20'); // 20h: näytä harmaana
+          });
+          if (hourSel.value === '20') minSel.value = '';
+        }
+        syncAndValidateTime();
+      }
+
+      function syncAndValidateTime() {
+        var h = hourSel ? hourSel.value : '';
+        var m = minSel  ? minSel.value  : '';
+
+        if (!h) {
+          if (timeInp) timeInp.value = '';
+          if (hourSel) setFieldState(hourSel, false, 'Valitse tunti');
+          if (minSel)  setFieldState(minSel,  false, '');
+          return false;
+        }
+
+        var hh = parseInt(h, 10);
+
+        if (hh === 20) {
+          if (timeInp) {
+            timeInp.value = '20:00';
+            timeInp.min = '11:15';
+            timeInp.max = '20:00';
+          }
+          if (hourSel) setFieldState(hourSel, true, '');
+          if (minSel)  setFieldState(minSel,  true, '');
+          return true;
+        }
+
+        if (!m) {
+          if (timeInp) timeInp.value = '';
+          if (hourSel) setFieldState(hourSel, true, '');
+          if (minSel)  setFieldState(minSel,  false, 'Valitse minuutit');
+          return false;
+        }
+
+        var mm = parseInt(m, 10);
+        var hourOk = hh >= 11 && hh <= 19;
+        var minOk  = (mm === 15 || mm === 30 || mm === 45);
+
+        if (!hourOk || !minOk){
+          if (timeInp) timeInp.value = '';
+          if (!hourOk && hourSel) setFieldState(hourSel, false, 'Tunti 11–19');
+          if (!minOk  && minSel)  setFieldState(minSel,  false, 'Minuutit 15/30/45');
+          return false;
+        }
+
+        if (timeInp) {
+          timeInp.value = pad(hh) + ':' + pad(mm);
+          timeInp.min = '11:15';
+          timeInp.max = '20:00';
+        }
+        if (hourSel) setFieldState(hourSel, true, '');
+        if (minSel)  setFieldState(minSel,  true, '');
+        return true;
+      }
+
+      if (hourSel) hourSel.addEventListener('change', onHourChange);
+      if (minSel)  minSel.addEventListener('change',  syncAndValidateTime);
+      onHourChange();
+      syncAndValidateTime();
+
+      form.addEventListener('submit', function (e) {
+        var ok = syncAndValidateTime();
+        if (!ok || !form.checkValidity()) {
+          e.preventDefault();
+          if (timeInp) timeInp.reportValidity();
+          return;
+        }
+        e.preventDefault();
+        if (dlg && typeof dlg.showModal === 'function') dlg.showModal();
+      });
+
+      if (btn) btn.addEventListener('click', function(){ dlg.close(); });
+    });
+  </script>
+</body>
+</html>
