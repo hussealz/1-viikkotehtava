@@ -3,60 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sushinuni — About & Varaus</title>
+  <title>SushiNuni — About & Varaus</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="topbar">
+  <header class="topbar" id="top">
     <div class="container">
       <nav class="mainnav" aria-label="Päävalikko">
         <ul>
           <li><a class="active" href="#hero">Etusivu</a></li>
-          <li><a href="#varaus">Ruokalista</a></li>
-          <li><a href="#yhteys">Yhteystiedot</a></li>
+          <li><a href="#" onclick="return false">Ruokalista</a></li>
+          <li><a href="#" onclick="return false">Yhteystiedot</a></li>
           <li class="sr-only"><a href="menu.pdf">Tulostettava menu (PDF)</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section id="hero" class="hero" role="img" aria-label="Sushinuni hero">
+  <section id="hero" class="hero" role="img" aria-label="SushiNuni hero">
     <div class="container">
-      <h1>Tervetuloa Sushinuniin</h1>
+      <h1>Tervetuloa SushiNuniin</h1>
       <p>Tuoretta sushia ja sesongin makuja. Tee pöytävaraus alta.</p>
       <a class="btn btn-ghost" href="#varaus">Avaa varauslomake</a>
     </div>
   </section>
 
   <main>
-    <div class="container">
-      <p class="note">Tänne tulee lisää sisältöä myöhemmissä tehtävissä</p>
-    </div>
 
     <section class="about-wrap">
       <div class="container about pattern">
         <figure class="about-image">
-          <img src="about.jpg" alt="Sushinuni ravintolan sisätila" />
+          <img src="about.png" alt="SushiNuni ravintolan sisätila" loading="lazy" decoding="async" />
         </figure>
 
         <div class="about-text">
           <p class="overline">Lisää meistä</p>
-          <h1>Tämä on meidän tarinamme</h1>
+          <h2>Tämä on meidän tarinamme</h2>
           <p>
-            Sushinuni on korttelin pieni sushibaari. Valmistamme riisin talon
+            SushiNuni on korttelin pieni sushibaari. Valmistamme riisin talon
             etikalla ja fileoimme kalan paikan päällä. Sesongit ohjaavat menuamme,
             myös kasvisvaihtoehdot löytyvät aina.
           </p>
           <p>
             Tavoitteemme on tarjota tuoretta, käsin tehtyä sushia nopeasti ja
-            ystävällisesti — arkisin 11–20 ja lauantaisin 12–21.
+            ystävällisesti — joka päivä 11:00–20:00.
           </p>
-          <a class="btn" href="#varaus">Katso menu</a>
+          <a class="btn" href="#varaus">Tee varaus</a>
         </div>
 
-        <img class="about-logo" src="sushilogo.png" alt="Sushinuni logo" />
-        <div class="clearfix"></div>
+        <img class="about-logo" src="sushilogo.png" alt="SushiNuni logo" loading="lazy" decoding="async" />
+
       </div>
     </section>
 
@@ -67,8 +64,8 @@
         <form id="bookingForm" class="form-card" action="#" method="post" novalidate>
           <div class="field">
             <label for="name">Nimi <span aria-hidden="true">*</span></label>
-            <input id="name" name="name" type="text" required minlength="2" maxlength="60" placeholder="Etunimi Sukunimi" />
-            <p class="error-msg">Anna nimesi (vähintään 2 merkkiä).</p>
+            <input id="name" name="name" type="text" required minlength="5" maxlength="60" placeholder="Etunimi Sukunimi" pattern="^[A-Za-zÄÖäöÅåÜüü\s]{2,}\s+[A-Za-zÄÖäöÅåÜüü\s]{3,}$" />
+            <p class="error-msg">Anna etunimi (vähintään 2 kirjainta) ja sukunimi (vähintään 3 kirjainta).</p>
           </div>
 
           <div class="field">
@@ -106,26 +103,22 @@
                 <div class="mini">
                   <select id="timeMinute" aria-label="Minuutti" required>
                     <option value="" selected disabled>Min…</option>
-                    <option>15</option><option>30</option><option>45</option>
+                    <option>00</option><option>15</option><option>30</option><option>45</option>
                   </select>
                 </div>
               </div>
 
               <input id="time" name="time" type="time" required hidden />
               <p class="error-msg">
-                Aukiolo: 11:15–20:00. Tunnit 11–19: minuutit 15/30/45. Tunti 20: vain 20:00.
+                Aukiolo: 11:00–20:00. Tunnit 11–19: minuutit 00/15/30/45. Tunti 20: vain 20:00.
               </p>
             </div>
           </div>
 
           <div class="field">
             <label for="people">Henkilömäärä <span aria-hidden="true">*</span></label>
-            <select id="people" name="people" required>
-              <option value="" selected disabled>Valitse…</option>
-              <option>1</option><option>2</option><option>3</option><option>4</option>
-              <option>5</option><option>6</option><option>7</option><option>8</option>
-            </select>
-            <p class="error-msg">Valitse henkilömäärä.</p>
+            <input id="people" name="people" type="number" min="1" max="8" required placeholder="1-8 henkilöä" />
+            <p class="error-msg">Valitse henkilömäärä (1-8).</p>
           </div>
 
           <div class="field">
@@ -142,25 +135,25 @@
 
           <div class="actions">
             <button type="submit" class="btn">Lähetä varaus</button>
-            <a class="btn-link" href="#hero">Takaisin ylös</a>
+            <a class="btn-link" href="#top">Takaisin ylös</a>
           </div>
         </form>
       </div>
     </section>
+
   </main>
 
-  <footer class="footer" id="yhteys">
+  <footer class="footer">
     <div class="container">
-      <small>© <span id="year">2025</span> Sushinuni, Helsinki</small>
+      <small>© <span id="year">2025</span> SushiNuni, Helsinki</small>
     </div>
   </footer>
 
   <dialog id="thankyou">
     <div class="dialog-card">
-      <img src="sushilogo.png" alt="" class="dialog-logo" aria-hidden="true" />
+      <img src="sushilogo.png" alt="" class="dialog-logo" aria-hidden="true" loading="lazy" decoding="async" />
       <h3>Kiitos varauksesta!</h3>
-      <p>Olemme lähettäneet vahvistuksen sähköpostiisi.</p>
-      <button id="dialogClose" class="btn">Sulje</button>
+      <p>Varaus on vastaanotettu. Ota yhteyttä jos sinulla on kysymyksiä.</p>
     </div>
   </dialog>
 
@@ -175,6 +168,12 @@
       var hourSel = document.getElementById('timeHour');
       var minSel  = document.getElementById('timeMinute');
       var timeInp = document.getElementById('time');
+      var dateInp = document.getElementById('date');
+      var nameInp = document.getElementById('name');
+      var emailInp = document.getElementById('email');
+      var phoneInp = document.getElementById('phone');
+      var peopleInp = document.getElementById('people');
+      var termsInp = document.getElementById('terms');
 
       function pad(n){ return String(n).padStart(2,'0'); }
       function setFieldState(el, ok, msg){
@@ -185,16 +184,85 @@
         field.classList.toggle('invalid', !ok);
       }
 
+      function validateName(){
+        if (!nameInp) return true;
+        var val = nameInp.value.trim();
+        var parts = val.split(/\s+/);
+        var ok = parts.length >= 2 && parts[0].length >= 2 && parts[1].length >= 3;
+        setFieldState(nameInp, ok, 'Etunimi vähintään 2 kirjainta, sukunimi vähintään 3 kirjainta');
+        return ok;
+      }
+
+      function validateEmail(){
+        if (!emailInp) return true;
+        var val = emailInp.value.trim();
+        var hasAt = val.includes('@');
+        var hasDomain = val.includes('.') && val.split('@')[1] && val.split('@')[1].length > 2;
+        var ok = hasAt && hasDomain && val.length > 5;
+        setFieldState(emailInp, ok, 'Syötä toimiva sähköpostiosoite (@ ja domain vaaditaan)');
+        return ok;
+      }
+
+      function validatePhone(){
+        if (!phoneInp) return true;
+        var val = phoneInp.value.trim();
+        var hasNumbers = /\d/.test(val);
+        var ok = hasNumbers && val.length >= 7;
+        setFieldState(phoneInp, ok, 'Syötä puhelinnumero (vähintään 7 numeroa)');
+        return ok;
+      }
+
+      function validatePeople(){
+        if (!peopleInp) return true;
+        var val = parseInt(peopleInp.value);
+        var ok = val >= 1 && val <= 8;
+        setFieldState(peopleInp, ok, 'Valitse henkilömäärä 1-8 väliltä');
+        return ok;
+      }
+
+      function validateTerms(){
+        if (!termsInp) return true;
+        var ok = termsInp.checked;
+        setFieldState(termsInp, ok, 'Hyväksy varausehdot ennen lähettämistä');
+        return ok;
+      }
+
       function onHourChange(){
         if (!hourSel) return;
         if (minSel){
           Array.from(minSel.options).forEach(function(opt){
             if (opt.value === '') return;
-            opt.disabled = (hourSel.value === '20'); // 20h: näytä harmaana
+            if (hourSel.value === '20') {
+              opt.disabled = (opt.value !== '00'); // klo 20: vain 00 sallittu
+            } else {
+              opt.disabled = false;
+            }
           });
-          if (hourSel.value === '20') minSel.value = '';
+          if (hourSel.value === '20') minSel.value = '00';
         }
         syncAndValidateTime();
+      }
+
+      function setDateMinToday(){
+        if (!dateInp) return;
+        var now = new Date();
+        var yyyy = now.getFullYear();
+        var mm = String(now.getMonth() + 1).padStart(2, '0');
+        var dd = String(now.getDate()).padStart(2, '0');
+        var today = yyyy + '-' + mm + '-' + dd;
+        dateInp.min = today;
+        if (dateInp.value && dateInp.value < today) {
+          dateInp.value = '';
+        }
+      }
+
+      function validateDate(){
+        if (!dateInp) return true;
+        var min = dateInp.min || '';
+        var val = dateInp.value || '';
+        var ok = !val || !min || val >= min;
+        setFieldState(dateInp, ok, 'Valitse tämän päivän tai tuleva päivämäärä');
+        return ok;
       }
 
       function syncAndValidateTime() {
@@ -211,6 +279,9 @@
         var hh = parseInt(h, 10);
 
         if (hh === 20) {
+          if (minSel) {
+            minSel.value = '00';
+          }
           if (timeInp) {
             timeInp.value = '20:00';
             timeInp.min = '11:15';
@@ -230,7 +301,7 @@
 
         var mm = parseInt(m, 10);
         var hourOk = hh >= 11 && hh <= 19;
-        var minOk  = (mm === 15 || mm === 30 || mm === 45);
+        var minOk  = (mm === 0 || mm === 15 || mm === 30 || mm === 45);
 
         if (!hourOk || !minOk){
           if (timeInp) timeInp.value = '';
@@ -241,7 +312,7 @@
 
         if (timeInp) {
           timeInp.value = pad(hh) + ':' + pad(mm);
-          timeInp.min = '11:15';
+          timeInp.min = '11:00';
           timeInp.max = '20:00';
         }
         if (hourSel) setFieldState(hourSel, true, '');
@@ -251,21 +322,59 @@
 
       if (hourSel) hourSel.addEventListener('change', onHourChange);
       if (minSel)  minSel.addEventListener('change',  syncAndValidateTime);
+      if (dateInp){
+        setDateMinToday();
+        dateInp.addEventListener('change', validateDate);
+      }
+      if (nameInp) nameInp.addEventListener('input', validateName);
+      if (emailInp) emailInp.addEventListener('input', validateEmail);
+      if (phoneInp) phoneInp.addEventListener('input', validatePhone);
+      if (peopleInp) peopleInp.addEventListener('input', validatePeople);
+      if (termsInp) termsInp.addEventListener('change', validateTerms);
+      
       onHourChange();
       syncAndValidateTime();
+      validateDate();
+      validateName();
+      validateEmail();
+      validatePhone();
+      validatePeople();
+      validateTerms();
 
       form.addEventListener('submit', function (e) {
-        var ok = syncAndValidateTime();
-        if (!ok || !form.checkValidity()) {
-          e.preventDefault();
-          if (timeInp) timeInp.reportValidity();
+        e.preventDefault();
+        
+        // Tarkista kaikki validointit
+        var allValid = syncAndValidateTime() && 
+                      validateDate() && 
+                      validateName() && 
+                      validateEmail() && 
+                      validatePhone() && 
+                      validatePeople() && 
+                      validateTerms();
+        
+        if (!allValid) {
+          // Fokusoi ensimmäisen virheellisen kentän
+          var firstInvalid = form.querySelector('.field.invalid input, .field.invalid select, .field.invalid textarea');
+          if (firstInvalid) firstInvalid.focus();
           return;
         }
-        e.preventDefault();
-        if (dlg && typeof dlg.showModal === 'function') dlg.showModal();
+        
+        // Näytä dialogi ja sulje se automaattisesti
+        if (dlg && typeof dlg.showModal === 'function') {
+          dlg.showModal();
+          setTimeout(function() {
+            dlg.close();
+            // Tyhjennä lomake dialogin sulkeutumisen jälkeen
+            form.reset();
+            // Poista validointi-tyylit
+            var fields = form.querySelectorAll('.field');
+            fields.forEach(function(field) {
+              field.classList.remove('valid', 'invalid');
+            });
+          }, 2000); // Sulje 2 sekunnin kuluttua
+        }
       });
-
-      if (btn) btn.addEventListener('click', function(){ dlg.close(); });
     });
   </script>
 </body>
