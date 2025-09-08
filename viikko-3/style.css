@@ -1,0 +1,781 @@
+/* ===== CSS Variables ===== */
+:root {
+  --bg: #111111;
+  --surface: #222222;
+  --text: #ffffff;
+  --muted: #999999;
+  --accent: #e63946;
+  --ok: #28a745;
+  --error: #dc3545;
+  --radius: 14px;
+  --shadow: 0 4px 12px rgba(0,0,0,.5);
+  --shadow-soft: 0 6px 20px rgba(0,0,0,.15);
+  --tr: 180ms ease;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #1a1a1a;
+  background: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container { 
+  max-width: 1100px; 
+  width: 100%; 
+  margin: 0 auto; 
+  padding: 0 16px; 
+}
+
+/* ===== Header ===== */
+.topbar { 
+  background: var(--bg); 
+  padding: 18px 0; 
+  box-shadow: var(--shadow); 
+}
+
+.topbar .container { 
+  text-align: center; 
+}
+
+.mainnav { 
+  display: inline-block; 
+}
+
+.mainnav ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 6px; 
+  transition: all 0.3s ease;
+}
+
+.mainnav li { 
+  margin: 0 6px; 
+}
+
+.mainnav a {
+  display: inline-block; 
+  padding: 8px 12px; 
+  text-decoration: none; 
+  color: #f5f5f5;
+  border-bottom: 2px solid transparent; 
+  border-radius: 6px;
+  transition: color var(--tr), border-color var(--tr);
+}
+
+.mainnav a:hover { 
+  color: #fff; 
+  border-bottom-color: var(--accent); 
+}
+
+.mainnav a:active { 
+  position: relative; 
+  top: 1px; 
+}
+
+.mainnav a:focus { 
+  outline: 3px solid var(--accent); 
+}
+
+.mainnav a.active { 
+  color: var(--accent); 
+  border-bottom-color: var(--accent); 
+}
+
+.mainnav a[href^="#"] { 
+  letter-spacing: .1px; 
+}
+
+.mainnav a[href$=".pdf"] { 
+  text-decoration: underline; 
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  padding: clamp(24px, 5vw, 56px) 0;
+  min-height: clamp(220px, 35vw, 420px);
+  color: var(--text);
+  background:
+    linear-gradient(180deg, rgba(17,17,17,.55), rgba(17,17,17,.55)),
+    url("hero.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero background positioning for different screen sizes */
+@media (max-width: 768px) {
+  .hero {
+    background-position: center 60%;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background-position: center 70%;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    background-position: center 75%;
+    background-size: cover;
+  }
+}
+
+.hero h1 { 
+  margin: 0 0 6px; 
+}
+
+.hero p { 
+  margin: 0 0 14px; 
+  color: #eaeaea; 
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block; 
+  padding: 10px 18px; 
+  border-radius: 999px; 
+  text-decoration: none; 
+  font-weight: 700;
+  background: var(--accent); 
+  color: #fff; 
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  transition: filter var(--tr), transform var(--tr);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover { 
+  filter: brightness(1.1); 
+}
+
+.btn:active { 
+  transform: translateY(1px); 
+}
+
+.btn-ghost { 
+  background: transparent; 
+  color: #fff; 
+  border: 2px solid var(--accent); 
+}
+
+.btn-ghost:hover { 
+  background: var(--accent); 
+}
+
+/* ===== About Section ===== */
+.about-wrap { 
+  background: #fafafa; 
+  padding: 40px 0; 
+}
+
+.about {
+  position: relative; 
+  padding: 32px; 
+  min-height: 340px; 
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0; 
+  border-radius: var(--radius); 
+  background: #fff;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.about-image { 
+  flex: 0 0 38%; 
+}
+
+.about-image img {
+  display: block; 
+  width: 100%; 
+  height: auto; 
+  max-width: 400px;
+  border-radius: 18px; 
+  box-shadow: var(--shadow-soft);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  max-height: 300px;
+}
+
+.about-image img:hover {
+  transform: scale(1.02);
+}
+
+.about-text { 
+  flex: 1; 
+}
+
+.overline {
+  margin: 0 0 6px; 
+  font-size: .9rem; 
+  letter-spacing: .12em; 
+  text-transform: uppercase; 
+  color: var(--accent);
+}
+
+.about h2 { 
+  margin: 0 0 10px; 
+  font-size: 1.6rem; 
+  color: #111; 
+}
+
+.about-logo { 
+  position: absolute; 
+  right: -40px; 
+  top: -40px; 
+  width: 120px; 
+  height: auto; 
+  pointer-events: none; 
+}
+
+/* ===== Form Section ===== */
+.form-section { 
+  background: #fff; 
+  padding: 40px 0 56px; 
+}
+
+.form-section h2 { 
+  margin: 0 0 16px; 
+}
+
+.form-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.field { 
+  margin: 14px 0 16px; 
+  transition: background-color var(--tr); 
+}
+
+.field > label { 
+  display: block; 
+  font-weight: 700; 
+  margin: 0 0 6px; 
+  color: #111; 
+  transition: color var(--tr); 
+}
+
+.field.valid > label {
+  color: #111; /* Normal color for valid fields */
+}
+
+.field.invalid > label {
+  color: var(--error); /* Red color for invalid fields */
+}
+
+.field:focus-within > label { 
+  color: var(--accent); 
+}
+
+.field.valid:focus-within > label {
+  color: #111; /* Keep normal color for valid fields even when focused */
+}
+
+.field.invalid:focus-within > label {
+  color: var(--error); /* Keep red color for invalid fields even when focused */
+}
+
+input, select, textarea {
+  width: 100%; 
+  padding: 10px 12px; 
+  border-radius: 10px; 
+  border: 1.5px solid #d6d6d6;
+  background-color: #ffffff;
+  transition: border-color var(--tr), box-shadow var(--tr), background-color var(--tr);
+  font: inherit;
+}
+
+input::placeholder, textarea::placeholder { 
+  color: #b5b5b5; 
+}
+
+input:focus, select:focus, textarea:focus { 
+  outline: none; 
+  border-color: #bcbcbc; 
+  box-shadow: 0 0 0 4px rgba(230,57,70,.15); 
+}
+
+/* Form validation states */
+.field.valid input,
+.field.valid select,
+.field.valid textarea {
+  border-color: var(--ok);
+  box-shadow: 0 0 0 4px rgba(40,167,69,.15);
+}
+
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea {
+  border-color: var(--error);
+  box-shadow: 0 0 0 4px rgba(220,53,69,.15);
+  background: #fff7f7;
+}
+
+.error-msg { 
+  display: none; 
+  color: var(--error); 
+  margin: .35rem 0 0; 
+  font-size: .95rem; 
+}
+
+.field.invalid .error-msg { 
+  display: block; 
+}
+
+.hint { 
+  color: var(--muted); 
+  font-size: .95rem; 
+  margin: .35rem 0 0; 
+}
+
+/* Checkbox field */
+.field.checkbox { 
+  display: block; 
+}
+
+.field.checkbox > input { 
+  width: auto; 
+  margin-right: 8px; 
+  vertical-align: middle; 
+}
+
+.field.checkbox > label { 
+  display: inline-block; 
+  vertical-align: middle; 
+  margin: 0; 
+}
+
+/* Two inline fields */
+.two-inline { 
+  display: flex; 
+  gap: 4%; 
+}
+
+.subfield { 
+  flex: 1; 
+}
+
+/* Time selection (hour + minute) */
+.mini-inline { 
+  font-size: 0; 
+  display: flex;
+  gap: 4%;
+}
+
+.mini-inline .mini { 
+  flex: 1;
+  font-size: 16px; 
+}
+
+/* Form actions */
+.actions { 
+  margin-top: 18px; 
+}
+
+.btn-link { 
+  margin-left: 10px; 
+  color: var(--accent); 
+  text-decoration: none; 
+}
+
+.btn-link:hover { 
+  text-decoration: underline; 
+}
+
+/* ===== Footer ===== */
+.footer { 
+  background: var(--bg); 
+  color: #f5f5f5; 
+  padding: 24px 0; 
+  text-align: center; 
+  margin-top: 40px; 
+}
+
+/* ===== Dialog ===== */
+dialog {
+  border: none; 
+  padding: 0; 
+  border-radius: var(--radius); 
+  width: min(520px, 92vw);
+  background: #fff; 
+  color: #111; 
+  box-shadow: 0 24px 60px rgba(0,0,0,.45);
+}
+
+dialog::backdrop { 
+  background: rgba(0,0,0,.55); 
+  backdrop-filter: saturate(110%) blur(2px); 
+}
+
+.dialog-card { 
+  padding: 24px; 
+  text-align: center; 
+}
+
+.dialog-logo { 
+  width: 72px; 
+  height: auto; 
+  display: block; 
+  margin: 6px auto 10px; 
+}
+
+/* ===== Accessibility ===== */
+:focus-visible { 
+  outline: 3px solid var(--accent); 
+  outline-offset: 2px; 
+}
+
+.sr-only {
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip: rect(0,0,1,1); 
+  border: 0;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .hero { 
+    min-height: 520px; 
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  .about h2 {
+    font-size: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hero {
+    min-height: 480px;
+  }
+  
+  .about {
+    padding: 40px;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+  .hero {
+    min-height: 420px;
+  }
+  
+  .about-image img { 
+    max-width: 360px; 
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .about h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (min-width: 600px) {
+  .mainnav ul {
+    gap: 12px;
+  }
+  
+  .mainnav a {
+    padding: 10px 16px;
+  }
+  
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+  
+  .hero p {
+    font-size: 0.98rem;
+  }
+  
+  .about h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .hero {
+    padding: clamp(16px, 4vw, 32px) 0;
+    min-height: 300px;
+    background-position: 40% center;
+    background-attachment: scroll; /* Better performance on mobile */
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  .about {
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
+  
+  .about-image {
+    flex: none;
+    width: 100%;
+    margin: 0;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .about-text {
+    flex: none;
+    width: 100%;
+  }
+  
+  .about h2 {
+    font-size: 1.4rem;
+  }
+  
+  .about-logo {
+    position: static;
+    display: block;
+    margin: 16px auto 0;
+    width: 60px;
+  }
+  
+  .form-card {
+    padding: 16px;
+  }
+  
+  .two-inline {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .subfield {
+    margin-top: 12px;
+  }
+  
+  .subfield:first-child {
+    margin-top: 0;
+  }
+  
+  .mini-inline {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .mini-inline .mini {
+    margin-top: 12px;
+  }
+  
+  .mini-inline .mini:first-child {
+    margin-top: 0;
+  }
+  
+  .mainnav ul {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .mainnav li {
+    margin: 2px 0;
+  }
+  
+  .mainnav a {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .dialog {
+    width: 95vw;
+    margin: 20px;
+  }
+}
+
+/* Very small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 250px;
+    background-position: 35% center;
+    padding: clamp(12px, 3vw, 24px) 0;
+  }
+  
+  .hero h1 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  .about {
+    padding: 16px;
+  }
+  
+  .about h2 {
+    font-size: 1.2rem;
+  }
+  
+  .form-card {
+    padding: 12px;
+  }
+  
+  .field {
+    margin: 12px 0;
+  }
+  
+  input, select, textarea {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  
+  .mainnav a {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices (phones, 360px and down) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 8px;
+  }
+  
+  .hero {
+    min-height: 200px;
+    background-position: 30% center;
+    padding: clamp(8px, 2vw, 16px) 0;
+  }
+  
+  .hero h1 {
+    font-size: 1.3rem;
+    line-height: 1.1;
+  }
+  
+  .hero p {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+  
+  .about {
+    padding: 12px;
+  }
+  
+  .about h2 {
+    font-size: 1.1rem;
+  }
+  
+  .form-card {
+    padding: 8px;
+  }
+  
+  .mainnav a {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .btn {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero {
+    min-height: 200px;
+    padding: 16px 0;
+    background-attachment: scroll;
+  }
+  
+  .about {
+    padding: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+}
